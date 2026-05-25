@@ -1,0 +1,29 @@
+package com.mycompany.rahul.module1Introduction;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Module1IntroductionApplication implements CommandLineRunner {
+
+	@Autowired
+	private PaymentService paymentService;
+
+	@Autowired
+	private PaymentService paymentService1;
+
+
+	public static void main(String[] args) {
+
+		SpringApplication.run(Module1IntroductionApplication.class, args);
+
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println(paymentService.hashCode() + " !== " +  paymentService1.hashCode());
+		paymentService.payment();
+	}
+}
